@@ -1,0 +1,53 @@
+<div class="options-link-open {{if hidden '' 'hidden'}}" {{action "toggle" false}}>
+  <i class="fa fa-angle-left"></i>
+</div>
+
+<div class="printer_message" id="{{concat 'printer_message_' package.id}}">
+  Sent to Printer..
+</div>
+
+<div class="receive-options {{if hidden 'hidden' ''}}">
+  {{#link-to "review_item.accept" package.item (query-params returnurl=currentUrl) tagName="div"}}
+    <i class="fa fa-pencil-square-o"></i>
+    {{t "edit"}}
+  {{/link-to}}
+  <div {{action "checkReceiving" "missing"}} class="{{if isMissing 'disabled'}}">
+    <i class="fa fa-exclamation-triangle"></i>
+    {{t "receive.missing"}}
+  </div>
+  <div {{action "checkReceiving" "receive"}} class="{{if isReceived 'disabled'}}">
+    <i class="fa fa-check-circle-o"></i>
+    {{t "receive.receive"}}
+  </div>
+
+  {{#if allowLabelPrint}}
+    <div {{action "printBarcode"}} >
+      <i class= "fa fa-print"></i>
+      {{t "receive.label"}}
+    </div>
+  {{else}}
+    <div {{action "checkReceiving" "receiveInInventory"}} class="{{if isReceived 'disabled'}}">
+      <i class= "fa fa-barcode"></i>
+      {{t "receive.inventory"}}
+    </div>
+  {{/if}}
+
+  <div class="options-link-close" {{action "toggle" true}}>
+    <i class="fa fa-angle-right"></i>
+  </div>
+</div>
+
+{{#message-box btn1Text=(t "receive.receiving.not_now") btn2Text=(t "receive.receiving.begin_receiving") btn2Callback=(action "confirmReceiving") isVisible=displayUserPrompt classNames="popupOverlay ui"}}
+  <strong>{{t "receive.receiving.header"}}</strong>
+
+  <p>{{t "receive.receiving.cant_modify_note"}}</p>
+
+  {{t "mark_received.delivered_by"}}<br/>
+
+  {{select-list
+    content=deliveredOptions
+    on-change=(action (mut deliveredBy))
+    selectedValue=deliveredBy
+    selectArrow=true}}
+
+{{/message-box}}

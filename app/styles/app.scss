@@ -1,0 +1,34 @@
+@import "shared_app";
+@import "date_time_picker";
+@import "porterage_charges";
+
+/* template specific */
+@import "templates/admin_main";
+@import "templates/components/twilio_make_call";
+@import "templates/components/package_image";
+@import "templates/receive_package";
+@import "templates/internet_call_status";
+@import "templates/search";
+@import "templates/users";
+@import "templates/holidays";
+@import "templates/notification_link";
+@import "templates/offers";
+@import "templates/offers/index";
+@import "templates/offer/index";
+@import "templates/offer/cancel";
+@import "templates/offer/merge";
+@import "templates/offer/plan_delivery";
+@import "templates/offer/collection_charges";
+@import "templates/item/index";
+@import "templates/item/edit";
+@import "templates/my_notifications";
+@import "templates/review_offer";
+@import "templates/review_offer/logistics";
+@import "templates/review_offer/receive";
+@import "templates/review_offer/donor_details";
+@import "templates/review_item/reject";
+@import "templates/review_item";
+@import "templates/delivery/contact_details";
+@import "templates/delivery/drop_off";
+@import "templates/delivery/book_van";
+@import "templates/delivery/confirm_van";

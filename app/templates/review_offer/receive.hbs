@@ -1,0 +1,48 @@
+<br/>
+
+{{#if model.allItemsReviewed}}
+
+  <section id="receive-list-menu" class="main-section review_offer">
+    <div class="row">
+      <div class="small-12 columns tab_row">
+        <dl class="tabs" data-tab>
+          {{#link-to 'review_offer.receive' (query-params state="expecting") tagName="dd" classNames="small-4 columns text-center"}}
+            {{#link-to 'review_offer.receive' (query-params state="expecting")}}
+              <div>{{t "review_offer.expecting"}}({{model.expectingCount}})</div>
+            {{/link-to}}
+          {{/link-to}}
+
+          {{#link-to 'review_offer.receive' (query-params state="received") tagName="dd" classNames="small-4 columns text-center"}}
+            {{#link-to 'review_offer.receive' (query-params state="received")}}
+              <div>{{t "review_offer.received"}}({{model.receivedCount}})</div>
+            {{/link-to}}
+          {{/link-to}}
+
+          {{#link-to 'review_offer.receive' (query-params state="missing") tagName="dd" classNames="small-4 columns text-center"}}
+            {{#link-to 'review_offer.receive' (query-params state="missing")}}
+              <div>{{t "review_offer.missing"}}({{model.missingCount}})</div>
+            {{/link-to}}
+          {{/link-to}}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <ul class="receive-list">
+  {{#each items as |item|}}
+    {{receive-item pState=state itemId=item.id}}
+  {{/each}}
+  </ul>
+
+{{else}}
+  <p>
+    <p><span class="icon-no-items"></span></p>
+    <p class="no-items">
+      {{#if model.allowResubmit}}
+        {{t "receive.resubmit"}}
+      {{else}}
+        {{t "logistics.finish_review_request"}}
+      {{/if}}
+    </p>
+  </p>
+{{/if}}

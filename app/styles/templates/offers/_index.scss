@@ -1,0 +1,25 @@
+.unread_message {
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  float: right;
+  margin-right: 1rem;
+  margin-top: -2.5rem;
+
+  @media #{$small-only} {
+    margin-top: -2.2rem;
+  }
+}
+
+.dynamic_filter {
+  margin: 0 0.8rem;
+}
+
+.search-offer-message {
+  color: white;
+  padding: 0.5rem 1rem 0.8rem;
+  font-size: 0.9rem;
+
+  @media #{$small-only} {
+    font-size: 0.7rem;
+  }
+}

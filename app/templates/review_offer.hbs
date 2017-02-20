@@ -1,0 +1,61 @@
+<nav class="tab-bar offer_details_title non-draft">
+  <section class="left-small">
+    {{#link-to backLinkPath classNames="back"}}{{t "back"}}{{/link-to}}
+  </section>
+
+  <section class="middle tab-bar-section">
+    <h1 class="title">{{t "review_offer.title"}}</h1>
+  </section>
+
+  <section class="right-small review_offer_options">
+    {{partial "review_offer_options"}}
+  </section>
+</nav>
+
+<section class="main-section review_offer offer_details">
+
+  {{offer-status-message
+    offer=offer
+    isStartReviewClicked=isStartReviewClicked
+    startReview="startReview" displayCompleteReviewPopup=displayCompleteReviewPopup
+    displayCompleteReceivePopup=displayCompleteReceivePopup
+  }}
+
+  <div class="row">
+    <div class="small-12 columns">
+      <dl class="tabs" data-tab>
+
+        {{#link-to 'review_offer.items' tagName="dd" classNames="small-3 columns text-center"}}
+          {{#link-to 'review_offer.items'}}
+            <i class="fa fa-comment-o fa-2x"></i>
+            <div>{{t "offer.title"}}</div>
+          {{/link-to}}
+        {{/link-to}}
+
+        {{#link-to 'review_offer.donor_details' tagName="dd" classNames="small-3 columns text-center"}}
+          {{#link-to 'review_offer.donor_details'}}
+            <i class="fa fa-user fa-2x"></i>
+            <div>{{t "offer.donor"}}</div>
+          {{/link-to}}
+        {{/link-to}}
+
+        {{#link-to 'review_offer.logistics' tagName="dd" classNames="small-3 columns text-center"}}
+          {{#link-to 'review_offer.logistics'}}
+            <i class="fa fa-truck fa-2x"></i>
+            <div>{{t "offer.transport"}}</div>
+          {{/link-to}}
+        {{/link-to}}
+
+        {{#link-to 'review_offer.receive' tagName="dd" classNames="small-3 columns text-center"}}
+          {{#link-to 'review_offer.receive'}}
+            <i class="fa fa-sign-in fa-2x"></i>
+            <div>{{t "review_offer.receive"}}</div>
+          {{/link-to}}
+        {{/link-to}}
+
+      </dl>
+
+      {{outlet}}
+    </div>
+  </div>
+</section>

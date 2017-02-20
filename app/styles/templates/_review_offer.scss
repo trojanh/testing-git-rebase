@@ -1,0 +1,46 @@
+.review_offer {
+  .tabs-content {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  .message-textbar{
+    position: relative;
+  }
+
+  .review_message div {
+    display: inline-block;
+  }
+
+  .start_review_link {
+    text-decoration: underline;
+  }
+
+  .waiting {
+    cursor: default;
+    .offer-status {
+      opacity: 0.8;
+      img {
+        position: fixed;
+        padding-left: 0.5rem;
+        padding-top: 0.3rem;
+      }
+    }
+  }
+
+  .tab_row {
+    margin-bottom: 0.5rem;
+    .tabs {
+      margin-left: -0.7rem;
+      margin-right: -0.7rem;
+      border-bottom: 1px solid #334f75;
+      dd.active {
+        border-bottom: 3px solid #334f75;
+        a:after {
+          border-width: 0px;
+        }
+      }
+    }
+  }
+
+}

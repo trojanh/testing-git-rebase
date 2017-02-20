@@ -1,0 +1,37 @@
+{{#validatable-form class="form-horizontal" action="completeReview" on="submit"}}
+
+  <div class="small-12 columns gogovan-req ui">
+    <div class='description'>{{t "logistics.ggv_hire"}}</div>
+
+    <ul class='radio-buttons'>
+      {{#each gogovanOptions as |option|}}
+        <li class="radio">
+          {{radio-button name="selectionTest" selection=selectedGogovanOption value=option.id id=option.id}}
+          <label class="radio-wrap small-only-text-center" for={{option.id}}>
+            {{option.name}}
+          </label>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="small-12 columns gogovan-req">
+    <div class='description'>{{t "logistics.portion_for_crossroads_truck"}}</div>
+
+    {{select-list
+      content=crossroadsOptions
+      on-change=(action (mut selectedCrossroadsOption))
+      selectedValue=selectedCrossroadsOption
+      prompt=crossroadsOptionsPrompt
+      required='true'
+      disabled='true'
+      selectArrow=true}}
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns complete-review-button">
+      {{#online-button classNames="button expand" disabledOverride=model.isFinished}}{{t "logistics.complete_review"}}{{/online-button}}
+    </div>
+  </div>
+
+{{/validatable-form}}

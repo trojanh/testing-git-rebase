@@ -1,0 +1,18 @@
+{{#if model.hasReceived}}
+  {{#unless model.delivery}}
+    <p><span class="icon-no-items"></span></p>
+  {{/unless}}
+
+  <p class="received-msg no-items">
+    {{#if model.isReceiving}}
+      {{t "logistics.receiving"}}
+    {{else}}
+      {{t "logistics.goods_received"}} {{display-datetime model.receivedAt format='dddd, MMMM Do'}} via {{model.deliveredBy}}.
+    {{/if}}
+  </p>
+
+{{/if}}
+
+{{#if model.delivery}}
+  {{partial 'offer/delivery_details'}}
+{{/if}}

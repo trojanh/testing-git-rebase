@@ -1,0 +1,38 @@
+.description {
+  font-size: 0.7rem;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.complete-review-button {
+  margin: 2rem 0 2rem;
+}
+
+.transport_details{
+  font-size: 0.9rem;
+  margin: 1rem 0 1rem;
+}
+
+.noTransportItems {
+  text-align: center;
+  padding: 1rem 0rem;
+
+  .info-text{
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.received-msg {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+}
+
+.gogovan-req {
+  .radio-buttons label {
+    @media #{$small-only} {
+      font-size: 0.69rem !important;
+    }
+  }
+}

@@ -1,0 +1,132 @@
+.receive-list {
+  margin-left: 0rem;
+  > li {
+    list-style: none;
+    border-bottom: $light-blue solid 1px;
+    margin: 10px 0px;
+    position: relative;
+    > div > div {
+      overflow: hidden;
+      padding-left: 10px;
+      padding-right: 35px;
+      color: white;
+    }
+  }
+  img {
+    width: auto;
+    float: left;
+  }
+  .receive-group-header {
+    margin-top: -1px;
+    border-top: $dark-blue solid 1px;
+    border-bottom: $light-blue solid 1px;
+    color: #3B567A;
+    font-size: 1.3em;
+  }
+  .package-name {
+    padding: 3px 0 3px 10px;
+    background-color: #23416A;
+    @media #{$small-only} {
+      font-size: 0.87em;
+    }
+  }
+  .package-missing {
+    background-color: black;
+  }
+  .package-received {
+    background-color: #428bca;
+  }
+  .package-expecting {
+    background-color: #6fab4a;
+  }
+  .dispatched {
+    background-color: #001C42;
+  }
+  .designated {
+    background-color: #334f75;
+  }
+  .package-description {
+    padding: 10px 0 0 20px;
+  }
+  .location-name {
+    text-align: center;
+    word-break: break-all;
+  }
+  .inventory-number {
+    text-align: right;
+  }
+  .sep {
+    clear: both;
+    + div {
+      margin-top: 1px;
+    }
+  }
+  .receive-options {
+    background-color: #4C6485;
+    display: table-row;
+    width: 100%;
+    max-width: 400px;
+    right: 0;
+    margin-top: -1.95rem;
+    @media #{$small-only} {
+      margin-top: -1.75rem;
+    }
+    > div {
+      display: table-cell;
+      width: 25%;
+      text-align: center;
+      padding: 20px 0;
+      cursor: pointer;
+    }
+    .fa {
+      display: block;
+      font-size: 30px;
+    }
+    .disabled {
+      color: $org-grey;
+      cursor: default;
+    }
+  }
+  .receive-options, .options-link-open {
+    position: absolute;
+  }
+  .options-link-open, div.options-link-close {
+    padding: 0 12px;
+    color: $light-blue;
+    cursor: pointer;
+    font-size: 30px;
+  }
+  .options-link-close {
+    display: table-cell;
+    vertical-align: middle;
+    border-left: 2px solid $dark-blue;
+  }
+  .options-link-open {
+    right: 0;
+    height: 26px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+#receive-list-menu {
+  .tabs dd.active a:after, .tabs dd.active a:before {
+    display: none;
+  }
+}
+.complete_receive_overlay {
+  div {
+    width: 100%;
+  }
+}
+
+.printer_message {
+  float: right;
+  margin-right: 1.5rem;
+  padding: 0.2rem 0.5rem;
+  background-color: #ee4c4e;
+  border-radius: 0.2rem;
+  display: none;
+  position: absolute;
+  right: 0.2rem;
+}

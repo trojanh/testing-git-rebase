@@ -1,0 +1,61 @@
+<section class="main-section reject-offer">
+  <div class="row">
+    {{#if itemTypeId}}
+      <div class="small-12 columns">
+        <div class="ui">
+          {{#if noReasonSelected}}
+            <div class="error-box">
+              <i class="fa fa-exclamation-triangle"></i>
+              {{t 'reject.option_error'}}
+            </div>
+          {{/if}}
+          <ul>
+            {{#each rejectionOptions as |item|}}
+              <li>
+                {{radio-button name="selectReason" selection=selectedId value=item.id id=item.specialId disabled=model.offer.isFinished}}
+                <label  for={{item.specialId}}>
+                  {{item.name}}
+                </label>
+              </li>
+            {{/each}}
+
+            <li>
+              {{radio-button
+                name="selectReason"
+                selection=selectedId
+                value="-1"
+                id="-1"
+                labelText=rejectReason
+                disabled=model.offer.isFinished }}
+
+              <label class='reject_label' for="rejectReason">
+                {{radio-text-input
+                  value=rejectReason
+                  name="rejectReason"
+                  id='rejectReason'
+                  placeholder=rejectReasonPlaceholder
+                  classBinding="isBlank:error"
+                  disabled=model.offer.isFinished
+                  focusIn=(action "setRejectOption")}}
+              </label>
+            </li>
+          </ul>
+
+          {{reject-message-field selectedId=selectedId itemId=itemId disabled=model.offer.isFinished}}
+
+        </div>
+
+        <div class="row">
+          <div class="small-8 small-offset-2 columns">
+            {{#online-button action="rejectItem" classNames="button expand rejectOffer" disabledOverride=model.offer.isFinished}}{{t "reject.reject_item"}}{{/online-button}}
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <p>
+        <i class="icon-empty-items fa fa-info-circle fa-5x"></i>
+        <p class="no-items">{{t 'reject.select_type'}}</p>
+      </p>
+    {{/if}}
+  </div>
+</section>
