@@ -70,4 +70,8 @@ export default DS.Model.extend({
   favouriteImage: Ember.computed('packageImages.@each.favourite', function(){
     return this.get("packageImages").filterBy("favourite").get("firstObject") || this.get("packageImages").sortBy("id").get("firstObject") || this.get("item.displayImage")|| null;
   }),
+
+  favouriteImage2: Ember.computed('packageImages.@each.favourite', function(){
+    return this.get("packageImages").filterBy("favourite").get("firstObject");
+  }),
 });
