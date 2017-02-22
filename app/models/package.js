@@ -46,12 +46,6 @@ export default DS.Model.extend({
 
   packageTypeId:   Ember.computed.foreignKey('packageType.id'),
 
-  packageTypeObject: Ember.computed('packageType', function(){
-    var obj = this.get('packageType').getProperties('id', 'name', 'isItemTypeNode');
-    obj.id = obj.packageTypeId = parseInt(obj.id);
-    return obj;
-  }),
-
   dimensions: Ember.computed('width', 'height', 'length', function(){
     var res = '';
     var append = val => {
@@ -61,17 +55,5 @@ export default DS.Model.extend({
     append(this.get('height'));
     append(this.get('length'));
     return !res ? '' : res + 'cm';
-  }),
-
-  displayImageUrl: Ember.computed("favouriteImage", "item.displayImageUrl", function(){
-    return this.get("favouriteImage") ? this.get("favouriteImage.thumbImageUrl") : this.get("item.displayImageUrl");
-  }),
-
-  favouriteImage: Ember.computed('packageImages.@each.favourite', function(){
-    return this.get("packageImages").filterBy("favourite").get("firstObject")  null;
-  }),
-
-  favouriteImage2: Ember.computed('packageImages.@each.favourite', function(){
-    return this.get("packageImages").filterBy("favourite").get("firstObject");
-  }),
+  })
 });
